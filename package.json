@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "build": "nx build ngx-trpc",
+    "lpublish": "cd dist/packages/ngx-trpc && npm publish",
     "hook:pre-commit": "lint-staged",
     "hook:commit-msg": "npx --no-install commitlint --edit \"$1\"",
     "prettify": "prettier --write ."
