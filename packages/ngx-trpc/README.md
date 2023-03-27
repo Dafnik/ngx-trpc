@@ -7,7 +7,7 @@ Project setup:
 ```typescript
 import {inject, InjectionToken, Provider} from '@angular/core';
 
-import {createTRPCProxyClient, httpBatchLink} from '@trpc/client';
+import {httpBatchLink} from '@trpc/client';
 import {createTRPCRxJSProxyClient} from 'ngx-trpc';
 
 import type {AppRouter} from './your-backend';
