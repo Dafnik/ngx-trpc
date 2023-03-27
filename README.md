@@ -83,5 +83,5 @@ Libs used:
 ## Commands
 ### Build
 ```shell
-pnx build ngx-trpc
+pnpn exec build ngx-trpc
 ```
