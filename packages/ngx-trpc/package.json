@@ -28,7 +28,7 @@
     "url": "git@github.com:Dafnik/ngx-trpc.git"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2"
   },
   "peerDependencies": {
     "@trpc/server": "10",
