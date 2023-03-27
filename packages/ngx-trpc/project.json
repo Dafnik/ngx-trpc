@@ -12,10 +12,7 @@
         "main": "packages/ngx-trpc/src/index.ts",
         "tsConfig": "packages/ngx-trpc/tsconfig.lib.json",
         "assets": ["packages/ngx-trpc/*.md", "LICENSE"],
-        "external": [
-          "/^@trpc\//",
-          "rxjs"
-        ]
+        "external": ["/^@trpc//", "rxjs"]
       }
     },
     "publish": {

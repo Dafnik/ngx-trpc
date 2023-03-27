@@ -2,16 +2,19 @@ import type {
   AnyMutationProcedure,
   AnyProcedure,
   AnyQueryProcedure,
-  AnyRouter, CombinedDataTransformer, DataTransformerOptions, DefaultDataTransformer,
+  AnyRouter,
+  CombinedDataTransformer,
+  DataTransformerOptions,
+  DefaultDataTransformer,
   inferProcedureInput,
   inferProcedureOutput,
   ProcedureArgs,
   ProcedureRouterRecord,
   ProcedureType
 } from "@trpc/server";
-import {ClientDataTransformerOptions, DataTransformer,} from "@trpc/server";
-import {createFlatProxy, createRecursiveProxy, inferTransformedProcedureOutput} from "@trpc/server/shared";
-import {inferObservableValue, observable, share} from "@trpc/server/observable";
+import { ClientDataTransformerOptions, DataTransformer } from "@trpc/server";
+import { createFlatProxy, createRecursiveProxy, inferTransformedProcedureOutput } from "@trpc/server/shared";
+import { inferObservableValue, observable, share } from "@trpc/server/observable";
 import {
   Operation,
   OperationContext,
@@ -19,9 +22,9 @@ import {
   OperationResultObservable,
   TRPCClientRuntime
 } from "@trpc/client/src/links/types";
-import {Observable as TrpcObservable} from "@trpc/server/src/observable/types";
-import {Observable as RxJSObservable} from "rxjs";
-import {TRPCClientError, TRPCLink} from "@trpc/client";
+import { Observable as TrpcObservable } from "@trpc/server/src/observable/types";
+import { Observable as RxJSObservable } from "rxjs";
+import { TRPCClientError, TRPCLink } from "@trpc/client";
 
 // Changed to rxjs observable
 type Resolver<TProcedure extends AnyProcedure> = (
@@ -29,72 +32,51 @@ type Resolver<TProcedure extends AnyProcedure> = (
 ) => RxJSObservable<inferTransformedProcedureOutput<TProcedure>>;
 
 // Removed subscription
-type DecorateProcedure<
-  TProcedure extends AnyProcedure,
-  TRouter extends AnyRouter,
-> = TProcedure extends AnyQueryProcedure
+type DecorateProcedure<TProcedure extends AnyProcedure, TRouter extends AnyRouter> = TProcedure extends AnyQueryProcedure
   ? {
-    query: Resolver<TProcedure>;
-  }
+      query: Resolver<TProcedure>;
+    }
   : TProcedure extends AnyMutationProcedure
-    ? {
+  ? {
       mutate: Resolver<TProcedure>;
     }
-    : never;
+  : never;
 
 /**
  * Removed subscription
  * @internal
  */
-type DecoratedProcedureRecord<
-  TProcedures extends ProcedureRouterRecord,
-  TRouter extends AnyRouter,
-> = {
+type DecoratedProcedureRecord<TProcedures extends ProcedureRouterRecord, TRouter extends AnyRouter> = {
   [TKey in keyof TProcedures]: TProcedures[TKey] extends AnyRouter
-    ? DecoratedProcedureRecord<
-      TProcedures[TKey]['_def']['record'],
-      TProcedures[TKey]
-    >
+    ? DecoratedProcedureRecord<TProcedures[TKey]['_def']['record'], TProcedures[TKey]>
     : TProcedures[TKey] extends AnyProcedure
-      ? DecorateProcedure<TProcedures[TKey], TRouter>
-      : never;
+    ? DecorateProcedure<TProcedures[TKey], TRouter>
+    : never;
 };
 
 // Removed subscription
-const clientCallTypeMap: Record<
-  keyof DecorateProcedure<any, any>,
-  ProcedureType
-> = {
+const clientCallTypeMap: Record<keyof DecorateProcedure<any, any>, ProcedureType> = {
   query: 'query',
   mutate: 'mutation',
 };
 
 // Removed subscription and requestAsPromise
-type UntypedClientProperties =
-  | 'links'
-  | 'runtime'
-  | 'requestId'
-  | '$request'
-  | 'query'
-  | 'mutation';
+type UntypedClientProperties = 'links' | 'runtime' | 'requestId' | '$request' | 'query' | 'mutation';
 
 // Nothing changed, only using different types
-export type CreateTRPCProxyClient<TRouter extends AnyRouter> =
-  DecoratedProcedureRecord<
-    TRouter['_def']['record'],
-    TRouter
-  > extends infer TProcedureRecord
-    ? UntypedClientProperties & keyof TProcedureRecord extends never
-      ? TProcedureRecord
-      : IntersectionError<UntypedClientProperties & keyof TProcedureRecord>
-    : never;
+export type CreateTRPCProxyClient<TRouter extends AnyRouter> = DecoratedProcedureRecord<
+  TRouter['_def']['record'],
+  TRouter
+> extends infer TProcedureRecord
+  ? UntypedClientProperties & keyof TProcedureRecord extends never
+    ? TProcedureRecord
+    : IntersectionError<UntypedClientProperties & keyof TProcedureRecord>
+  : never;
 
 /**
  * Nothing changed, only using different types
  */
-function createTRPCRxJSClientProxy<TRouter extends AnyRouter>(
-  client: TRPCClient<TRouter>,
-) {
+function createTRPCRxJSClientProxy<TRouter extends AnyRouter>(client: TRPCClient<TRouter>) {
   return createFlatProxy<CreateTRPCProxyClient<TRouter>>((key) => {
     // eslint-disable-next-line no-prototype-builtins
     if (client.hasOwnProperty(key)) {
@@ -103,10 +85,7 @@ function createTRPCRxJSClientProxy<TRouter extends AnyRouter>(
     return createRecursiveProxy(({path, args}) => {
       const pathCopy = [key, ...path];
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      const clientCallType = pathCopy.pop()! as keyof DecorateProcedure<
-        any,
-        any
-      >;
+      const clientCallType = pathCopy.pop()! as keyof DecorateProcedure<any, any>;
 
       const procedureType = clientCallTypeMap[clientCallType];
 
@@ -117,15 +96,13 @@ function createTRPCRxJSClientProxy<TRouter extends AnyRouter>(
   });
 }
 
-export function createTRPCRxJSProxyClient<TRouter extends AnyRouter>(
-  opts: CreateTRPCClientOptions<TRouter>,
-) {
+export function createTRPCRxJSProxyClient<TRouter extends AnyRouter>(opts: CreateTRPCClientOptions<TRouter>) {
   const client = new TRPCClient<TRouter>(opts);
   const proxy = createTRPCRxJSClientProxy(client as TRPCClient<TRouter>);
   return proxy;
 }
 
-type TRPCType =  'query' | 'mutation';
+type TRPCType = 'query' | 'mutation';
 
 /**
  * Removed subscription method;
@@ -170,11 +147,11 @@ class TRPCClient<TRouter extends AnyRouter> {
   }
 
   private $request<TInput = unknown, TOutput = unknown>({
-                                                          type,
-                                                          input,
-                                                          path,
-                                                          context = {},
-                                                        }: {
+    type,
+    input,
+    path,
+    context = {},
+  }: {
     type: TRPCType;
     input: TInput;
     path: string;
@@ -197,7 +174,7 @@ class TRPCClient<TRouter extends AnyRouter> {
   public query<
     TQueries extends TRouter['_def']['queries'],
     TPath extends string & keyof TQueries,
-    TInput extends inferProcedureInput<TQueries[TPath]>,
+    TInput extends inferProcedureInput<TQueries[TPath]>
   >(path: TPath, input?: TInput, opts?: TRPCRequestOptions) {
     type TOutput = inferProcedureOutput<TQueries[TPath]>;
     return this.$request<TInput, TOutput>({
@@ -211,7 +188,7 @@ class TRPCClient<TRouter extends AnyRouter> {
   public mutation<
     TMutations extends TRouter['_def']['mutations'],
     TPath extends string & keyof TMutations,
-    TInput extends inferProcedureInput<TMutations[TPath]>,
+    TInput extends inferProcedureInput<TMutations[TPath]>
   >(path: TPath, input?: TInput, opts?: TRPCRequestOptions) {
     type TOutput = inferTransformedProcedureOutput<TMutations[TPath]>;
     return this.$request<TInput, TOutput>({
@@ -223,9 +200,7 @@ class TRPCClient<TRouter extends AnyRouter> {
   }
 }
 
-function trpcObservableToRxJsObservable<TValue>(
-  observable: TrpcObservable<TValue, unknown>,
-) {
+function trpcObservableToRxJsObservable<TValue>(observable: TrpcObservable<TValue, unknown>) {
   return new RxJSObservable<TValue>((subscriber) => {
     const sub = observable.subscribe({
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -242,7 +217,6 @@ function trpcObservableToRxJsObservable<TValue>(
   });
 }
 
-
 /**
  * One to one copy of trpc
  */
@@ -258,11 +232,7 @@ export interface TRPCRequestOptions {
   signal?: AbortSignal;
 }
 
-function createChain<
-  TRouter extends AnyRouter,
-  TInput = unknown,
-  TOutput = unknown,
->(opts: {
+function createChain<TRouter extends AnyRouter, TInput = unknown, TOutput = unknown>(opts: {
   links: OperationLink<TRouter, TInput, TOutput>[];
   op: Operation<TInput>;
 }): OperationResultObservable<TRouter, TOutput> {
@@ -270,9 +240,7 @@ function createChain<
     function execute(index = 0, op = opts.op) {
       const next = opts.links[index];
       if (!next) {
-        throw new Error(
-          'No more links to execute - did you forget to add an ending link?',
-        );
+        throw new Error('No more links to execute - did you forget to add an ending link?');
       }
       const subscription = next({
         op,
@@ -291,12 +259,11 @@ function createChain<
 }
 export type CreateTRPCClientOptions<TRouter extends AnyRouter> =
   | CreateTRPCClientBaseOptions<TRouter> & {
-  links: TRPCLink<TRouter>[];
-};
+      links: TRPCLink<TRouter>[];
+    };
 
-type CreateTRPCClientBaseOptions<TRouter extends AnyRouter> =
-  TRouter['_def']['_config']['transformer'] extends DefaultDataTransformer
-    ? {
+type CreateTRPCClientBaseOptions<TRouter extends AnyRouter> = TRouter['_def']['_config']['transformer'] extends DefaultDataTransformer
+  ? {
       /**
        * Data transformer
        *
@@ -305,24 +272,24 @@ type CreateTRPCClientBaseOptions<TRouter extends AnyRouter> =
        **/
       transformer?: 'You must set a transformer on the backend router';
     }
-    : TRouter['_def']['_config']['transformer'] extends DataTransformerOptions
-      ? {
-        /**
-         * Data transformer
-         *
-         * You must use the same transformer on the backend and frontend
-         * @link https://trpc.io/docs/data-transformers
-         **/
-        transformer: TRouter['_def']['_config']['transformer'] extends CombinedDataTransformer
-          ? DataTransformerOptions
-          : TRouter['_def']['_config']['transformer'];
-      }
-      : {
-        /**
-         * Data transformer
-         *
-         * You must use the same transformer on the backend and frontend
-         * @link https://trpc.io/docs/data-transformers
-         **/
-        transformer?: ClientDataTransformerOptions;
-      };
+  : TRouter['_def']['_config']['transformer'] extends DataTransformerOptions
+  ? {
+      /**
+       * Data transformer
+       *
+       * You must use the same transformer on the backend and frontend
+       * @link https://trpc.io/docs/data-transformers
+       **/
+      transformer: TRouter['_def']['_config']['transformer'] extends CombinedDataTransformer
+        ? DataTransformerOptions
+        : TRouter['_def']['_config']['transformer'];
+    }
+  : {
+      /**
+       * Data transformer
+       *
+       * You must use the same transformer on the backend and frontend
+       * @link https://trpc.io/docs/data-transformers
+       **/
+      transformer?: ClientDataTransformerOptions;
+    };

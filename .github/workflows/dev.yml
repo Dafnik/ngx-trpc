@@ -1,0 +1,65 @@
+name: on branch push
+
+on:
+  push:
+    branches:
+      - '*' # matches every branch that doesn't contain a '/'
+      - '*/*' # matches every branch containing a single '/'
+      - '**' # matches every branch
+      - '!main'
+
+jobs:
+  build-lib:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: setup node and pnpm
+        uses: ./.github/actions/setup-node-pnpm
+
+      - name: install dependencies
+        run: pnpm install --ignore-scripts
+
+      - name: build
+        run: pnpm exec nx build ngx-trpc
+
+      - uses: actions/upload-artifact@master
+        name: create ngx-trpc artifact
+        with:
+          name: ngx-trpc
+          path: ./dist/packages/ngx-trpc
+          retention-days: 1
+
+
+  deploy-dev:
+    name: Deploy ngx-trpc dev
+    needs: [build-lib]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    strategy:
+      matrix:
+        lib: [dfts-helper, dfx-helper, dfx-translate, dfx-bootstrap-table]
+    steps:
+      - uses: actions/checkout@master
+
+      - uses: actions/download-artifact@master
+        with:
+          name: ngx-trpc
+          path: ./dist
+
+      - name: dist lookup
+        run: cd dist && ls -la && cd -
+
+      - name: zip ngx-trpc.zip
+        run: zip -r "ngx-trpc.zip" ./dist >> /dev/null
+
+#      - name: copy build to release server
+#        uses: garygrossgarten/github-action-scp@release
+#        with:
+#          local: ./ngx-trpc.zip
+#          remote: /var/www/datepoll-share/common/ngx-trpc/ngx-trpc-dev.zip
+#          host: ${{ secrets.RELEASES_SSH_HOST }}
+#          port: ${{ secrets.RELEASES_SSH_PORT }}
+#          username: ${{ secrets.RELEASES_SSH_USER }}
+#          privateKey: ${{ secrets.RELEASES_SSH_PRIVATE_KEY }}
