@@ -36,9 +36,6 @@ jobs:
     needs: [build-lib]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
-    strategy:
-      matrix:
-        lib: [dfts-helper, dfx-helper, dfx-translate, dfx-bootstrap-table]
     steps:
       - uses: actions/checkout@master
 
