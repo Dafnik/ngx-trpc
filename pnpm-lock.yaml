@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 importers:
+
   .:
     specifiers:
       '@nrwl/esbuild': ^15.8.9
@@ -47,9 +48,19 @@ importers:
       typescript: 4.9.5
 
   packages/ngx-trpc:
-    specifiers: {}
+    specifiers:
+      '@trpc/client': '10'
+      '@trpc/server': '10'
+      rxjs: '7'
+      tslib: ^2
+    dependencies:
+      '@trpc/client': 10.18.0_@trpc+server@10.18.0
+      '@trpc/server': 10.18.0
+      rxjs: 7.8.0
+      tslib: 2.5.0
 
 packages:
+
   /@ampproject/remapping/2.2.0:
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}
     engines: {node: '>=6.0.0'}
