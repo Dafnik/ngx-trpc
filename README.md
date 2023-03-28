@@ -3,10 +3,12 @@
 TRPC Client for Angular.
 
 Dependencies:
-* pnpm `pnpm install trpc-client ngx-trpc`
-* npm `npm install trpc-client ngx-trpc`
+
+- pnpm `pnpm install trpc-client ngx-trpc`
+- npm `npm install trpc-client ngx-trpc`
 
 Project setup:
+
 ```typescript
 import {inject, InjectionToken, Provider} from '@angular/core';
 
@@ -82,9 +84,10 @@ Libs used:
 - TRPC https://trpc.io
 - RxJS https://rxjs.dev
 
-
 ## Commands
+
 ### Build
+
 ```shell
 pnpn exec build ngx-trpc
 ```

@@ -1,1 +1,1 @@
-export {createTRPCRxJSProxyClient} from './lib/ngx-trpc';
+export * from './lib/ngx-trpc';

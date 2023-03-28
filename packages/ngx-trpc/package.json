@@ -1,38 +1,5 @@
 {
   "name": "ngx-trpc",
-  "version": "0.0.2",
-  "description": "TRPC library for Angular.",
-  "private": false,
-  "license": "MIT",
-  "homepage": "https://github.com/Dafnik/ngx-trpc",
-  "keywords": [
-    "angular2",
-    "angular",
-    "typescript",
-    "trpc"
-  ],
-  "author": {
-    "name": "Dafnik",
-    "email": "contact@dafnik.me",
-    "url": "https://dafnik.me"
-  },
-  "funding": {
-    "type": "liberapay",
-    "url": "https://liberapay.com/Dafnik"
-  },
-  "bugs": {
-    "url": "https://github.com/Dafnik/ngx-trpc/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:Dafnik/ngx-trpc.git"
-  },
-  "dependencies": {
-    "tslib": "^2"
-  },
-  "peerDependencies": {
-    "@trpc/server": "10",
-    "@trpc/client": "10",
-    "rxjs": "7"
-  }
+  "version": "0.0.1",
+  "type": "module"
 }
