@@ -21,20 +21,20 @@ importers:
         version: 2.5.0
     devDependencies:
       '@nrwl/esbuild':
-        specifier: ^15.8.9
-        version: 15.8.9(esbuild@0.17.14)(eslint@8.37.0)(nx@15.8.9)(prettier@2.8.7)(typescript@4.9.5)
+        specifier: 15.9.2
+        version: 15.9.2(esbuild@0.17.14)(nx@15.9.2)(typescript@4.9.5)
       '@nrwl/eslint-plugin-nx':
-        specifier: 15.8.9
-        version: 15.8.9(@typescript-eslint/parser@5.56.0)(eslint-config-prettier@8.8.0)(eslint@8.37.0)(nx@15.8.9)(typescript@4.9.5)
+        specifier: 15.9.2
+        version: 15.9.2(@typescript-eslint/parser@5.56.0)(eslint-config-prettier@8.8.0)(eslint@8.37.0)(nx@15.9.2)(typescript@4.9.5)
       '@nrwl/jest':
-        specifier: ^15.8.9
-        version: 15.8.9(@types/node@18.15.11)(eslint@8.37.0)(nx@15.8.9)(prettier@2.8.7)(ts-node@10.9.1)(typescript@4.9.5)
+        specifier: 15.9.2
+        version: 15.9.2(@types/node@18.15.11)(nx@15.9.2)(ts-node@10.9.1)(typescript@4.9.5)
       '@nrwl/js':
-        specifier: 15.8.9
-        version: 15.8.9(eslint@8.37.0)(nx@15.8.9)(prettier@2.8.7)(typescript@4.9.5)
+        specifier: 15.9.2
+        version: 15.9.2(nx@15.9.2)(typescript@4.9.5)
       '@nrwl/linter':
-        specifier: 15.8.9
-        version: 15.8.9(eslint@8.37.0)(nx@15.8.9)(prettier@2.8.7)(typescript@4.9.5)
+        specifier: 15.9.2
+        version: 15.9.2(eslint@8.37.0)(nx@15.9.2)(typescript@4.9.5)
       '@types/jest':
         specifier: ^29.4.0
         version: 29.5.0
@@ -72,8 +72,8 @@ importers:
         specifier: ^13.2.0
         version: 13.2.0
       nx:
-        specifier: 15.8.9
-        version: 15.8.9
+        specifier: 15.9.2
+        version: 15.9.2
       prettier:
         specifier: ^2.6.2
         version: 2.8.7
@@ -2001,7 +2001,7 @@ packages:
     dependencies:
       '@bcoe/v8-coverage': 0.2.3
       '@jest/console': 28.1.3
-      '@jest/test-result': 28.1.1
+      '@jest/test-result': 28.1.3
       '@jest/transform': 28.1.3
       '@jest/types': 28.1.3
       '@jridgewell/trace-mapping': 0.3.17
@@ -2017,7 +2017,7 @@ packages:
       istanbul-lib-source-maps: 4.0.1
       istanbul-reports: 3.1.5
       jest-message-util: 28.1.3
-      jest-util: 28.1.1
+      jest-util: 28.1.3
       jest-worker: 28.1.3
       slash: 3.0.0
       string-length: 4.0.2
@@ -2283,43 +2283,40 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@nrwl/cli@15.8.9:
-    resolution: {integrity: sha512-b0lGAXMqyIXyJHCpVyqnm8hCFSRARDiWkSzE3R7dVLTuu0Z9vdnrNUctMipjlzZk10Ipd8iggsjrToMbDcL7dA==}
+  /@nrwl/cli@15.9.2:
+    resolution: {integrity: sha512-QoCmyrcGakHAYTJaNBbOerRQAmqJHMYGCdqtQidV+aP9p1Dy33XxDELfhd+IYmGqngutXuEWChNpWNhPloLnoA==}
     dependencies:
-      nx: 15.8.9
+      nx: 15.9.2
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
       - debug
     dev: true
 
-  /@nrwl/devkit@15.8.9(nx@15.8.9)(typescript@4.9.5):
-    resolution: {integrity: sha512-/AbdsBJjo4q0ZCLOGEPTcBTOQz/FZqKi9z/VlvUjwGJKwC5B58cb3F3lfiI7agahf3ODy7vrL5marjF5cOnlLQ==}
+  /@nrwl/devkit@15.9.2(nx@15.9.2):
+    resolution: {integrity: sha512-2DvTstVZb91m+d4wqUJMBHQ3elxyabdmFE6/3aXmtOGeDxTyXyDzf/1O6JvBBiL8K6XC3ZYchjtxUHgxl/NJ5A==}
     peerDependencies:
       nx: '>= 14.1 <= 16'
     dependencies:
-      '@phenomnomnominal/tsquery': 4.1.1(typescript@4.9.5)
       ejs: 3.1.9
       ignore: 5.2.4
-      nx: 15.8.9
+      nx: 15.9.2
       semver: 7.3.4
       tmp: 0.2.1
       tslib: 2.5.0
-    transitivePeerDependencies:
-      - typescript
     dev: true
 
-  /@nrwl/esbuild@15.8.9(esbuild@0.17.14)(eslint@8.37.0)(nx@15.8.9)(prettier@2.8.7)(typescript@4.9.5):
-    resolution: {integrity: sha512-wkE/SB8AV/aGnSPeE0VrE9csaa3p0xLc3tmdjGQBukf0dKPlJ5ooD1BeFlawmZ+K2XYWKBc/JTtZqJ3KYOxuqw==}
+  /@nrwl/esbuild@15.9.2(esbuild@0.17.14)(nx@15.9.2)(typescript@4.9.5):
+    resolution: {integrity: sha512-S8migK7Rfuv9cyymFC50LyjwA448+pCwFsCMscDZfo0cAF/2JG1wCy4Dp/HfoD1IXo5IjgQI7gxQtJ4W8D0cQw==}
     peerDependencies:
       esbuild: ~0.17.5
     peerDependenciesMeta:
       esbuild:
         optional: true
     dependencies:
-      '@nrwl/devkit': 15.8.9(nx@15.8.9)(typescript@4.9.5)
-      '@nrwl/js': 15.8.9(eslint@8.37.0)(nx@15.8.9)(prettier@2.8.7)(typescript@4.9.5)
-      '@nrwl/workspace': 15.8.9(eslint@8.37.0)(prettier@2.8.7)(typescript@4.9.5)
+      '@nrwl/devkit': 15.9.2(nx@15.9.2)
+      '@nrwl/js': 15.9.2(nx@15.9.2)(typescript@4.9.5)
+      '@nrwl/workspace': 15.9.2
       chalk: 4.1.2
       dotenv: 10.0.0
       esbuild: 0.17.14
@@ -2328,19 +2325,16 @@ packages:
       tsconfig-paths: 4.1.2
       tslib: 2.5.0
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - debug
-      - eslint
       - nx
-      - prettier
       - supports-color
       - typescript
     dev: true
 
-  /@nrwl/eslint-plugin-nx@15.8.9(@typescript-eslint/parser@5.56.0)(eslint-config-prettier@8.8.0)(eslint@8.37.0)(nx@15.8.9)(typescript@4.9.5):
-    resolution: {integrity: sha512-B5HNu9CY30aBnAzoG98e5Yow04pWvfY5NRxq2bErvOwTbNkeX4FIFEC8PApg90nFPEpLwRwSBXk4G0iNUJScUA==}
+  /@nrwl/eslint-plugin-nx@15.9.2(@typescript-eslint/parser@5.56.0)(eslint-config-prettier@8.8.0)(eslint@8.37.0)(nx@15.9.2)(typescript@4.9.5):
+    resolution: {integrity: sha512-WeR+/mjzteBz9401mZroyML7sgnxF32FjMBcmVjuG5a5Eji36ChXn8Vtzm3IhfAY3k2sFbANxYLSNQYf5JJyqw==}
     peerDependencies:
       '@typescript-eslint/parser': ^5.29.0
       eslint-config-prettier: ^8.1.0
@@ -2348,7 +2342,7 @@ packages:
       eslint-config-prettier:
         optional: true
     dependencies:
-      '@nrwl/devkit': 15.8.9(nx@15.8.9)(typescript@4.9.5)
+      '@nrwl/devkit': 15.9.2(nx@15.9.2)
       '@typescript-eslint/parser': 5.56.0(eslint@8.37.0)(typescript@4.9.5)
       '@typescript-eslint/utils': 5.56.0(eslint@8.37.0)(typescript@4.9.5)
       chalk: 4.1.2
@@ -2362,13 +2356,13 @@ packages:
       - typescript
     dev: true
 
-  /@nrwl/jest@15.8.9(@types/node@18.15.11)(eslint@8.37.0)(nx@15.8.9)(prettier@2.8.7)(ts-node@10.9.1)(typescript@4.9.5):
-    resolution: {integrity: sha512-xJDYZOmFqo1QExusRIKhB2EUloCJTfrGHmAcdW3UyGkDj5qadUlTSjitf9PKk4JOco5qdwqvgpttzQ+AH/3byQ==}
+  /@nrwl/jest@15.9.2(@types/node@18.15.11)(nx@15.9.2)(ts-node@10.9.1)(typescript@4.9.5):
+    resolution: {integrity: sha512-4KSGkxbTNpnHnTHkEGCWbndPTPJSBmScSU2kbYemKstq1hbW/IR3ESUm/K6KvkvGasHJKBhiSEMkbi8tYT/jhQ==}
     dependencies:
       '@jest/reporters': 28.1.1
       '@jest/test-result': 28.1.1
-      '@nrwl/devkit': 15.8.9(nx@15.8.9)(typescript@4.9.5)
-      '@nrwl/js': 15.8.9(eslint@8.37.0)(nx@15.8.9)(prettier@2.8.7)(typescript@4.9.5)
+      '@nrwl/devkit': 15.9.2(nx@15.9.2)
+      '@nrwl/js': 15.9.2(nx@15.9.2)(typescript@4.9.5)
       '@phenomnomnominal/tsquery': 4.1.1(typescript@4.9.5)
       chalk: 4.1.2
       dotenv: 10.0.0
@@ -2379,22 +2373,19 @@ packages:
       resolve.exports: 1.1.0
       tslib: 2.5.0
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - '@types/node'
       - debug
-      - eslint
       - node-notifier
       - nx
-      - prettier
       - supports-color
       - ts-node
       - typescript
     dev: true
 
-  /@nrwl/js@15.8.9(eslint@8.37.0)(nx@15.8.9)(prettier@2.8.7)(typescript@4.9.5):
-    resolution: {integrity: sha512-pHpKUfM9WNCXHXD0DJKzHHw81JQQmGD3uDbC4M7fNDSq0JYt5ztmG9lEd8MgHDel76YW0fcGR0X/e/KvTJ5UAQ==}
+  /@nrwl/js@15.9.2(nx@15.9.2)(typescript@4.9.5):
+    resolution: {integrity: sha512-ioYnV9N02/6kTSGzo/GlX0BCFLe1rhaYVxxza/ciUtI33sej8GTe33jm69Y3t1dwxk7K1aZ1g6LPOYA5L4SYJw==}
     dependencies:
       '@babel/core': 7.21.3
       '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.21.3)
@@ -2403,12 +2394,12 @@ packages:
       '@babel/preset-env': 7.20.2(@babel/core@7.21.3)
       '@babel/preset-typescript': 7.21.0(@babel/core@7.21.3)
       '@babel/runtime': 7.21.0
-      '@nrwl/devkit': 15.8.9(nx@15.8.9)(typescript@4.9.5)
-      '@nrwl/workspace': 15.8.9(eslint@8.37.0)(prettier@2.8.7)(typescript@4.9.5)
+      '@nrwl/devkit': 15.9.2(nx@15.9.2)
+      '@nrwl/workspace': 15.9.2
       '@phenomnomnominal/tsquery': 4.1.1(typescript@4.9.5)
       babel-plugin-const-enum: 1.2.0(@babel/core@7.21.3)
       babel-plugin-macros: 2.8.0
-      babel-plugin-transform-typescript-metadata: 0.3.2(@babel/core@7.21.3)
+      babel-plugin-transform-typescript-metadata: 0.3.2
       chalk: 4.1.2
       fast-glob: 3.2.7
       fs-extra: 11.1.1
@@ -2419,44 +2410,39 @@ packages:
       tree-kill: 1.2.2
       tslib: 2.5.0
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - debug
-      - eslint
       - nx
-      - prettier
       - supports-color
       - typescript
     dev: true
 
-  /@nrwl/linter@15.8.9(eslint@8.37.0)(nx@15.8.9)(prettier@2.8.7)(typescript@4.9.5):
-    resolution: {integrity: sha512-cPzUGEUCravAfF5dnmU0nBlTSnY3Zk8jdGiF2EzqPKBLdJ0cIKoQs8iCmXx0VCFoCM9vxs+LbbUflaZP718E1w==}
+  /@nrwl/linter@15.9.2(eslint@8.37.0)(nx@15.9.2)(typescript@4.9.5):
+    resolution: {integrity: sha512-/kUSwf8s1Q4k+jQI4Ibhh0rXRokrhppG1Y1Yrg3aMB7H0mAEIb4lNOzTN01lJ4kC1WxL5QWRqj45xG6MPE2Zgg==}
     peerDependencies:
       eslint: ^8.0.0
     peerDependenciesMeta:
       eslint:
         optional: true
     dependencies:
-      '@nrwl/devkit': 15.8.9(nx@15.8.9)(typescript@4.9.5)
-      '@nrwl/js': 15.8.9(eslint@8.37.0)(nx@15.8.9)(prettier@2.8.7)(typescript@4.9.5)
+      '@nrwl/devkit': 15.9.2(nx@15.9.2)
+      '@nrwl/js': 15.9.2(nx@15.9.2)(typescript@4.9.5)
       '@phenomnomnominal/tsquery': 4.1.1(typescript@4.9.5)
       eslint: 8.37.0
       tmp: 0.2.1
       tslib: 2.5.0
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - debug
       - nx
-      - prettier
       - supports-color
       - typescript
     dev: true
 
-  /@nrwl/nx-darwin-arm64@15.8.9:
-    resolution: {integrity: sha512-ZTwLlo+Bl8i9Gsq7dQFda8Pqs8qUAANeZdWiYo8ZsVmpcQZO2FTC3mwKsUhUuoFxoEiP/cwQAYY6WRTPE9RuGg==}
+  /@nrwl/nx-darwin-arm64@15.9.2:
+    resolution: {integrity: sha512-Yv+OVsQt3C/hmWOC+YhJZQlsyph5w1BHfbp4jyCvV1ZXBbb8NdvwxgDHPWXxKPTc1EXuB7aEX3qzxM3/OWEUJg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
@@ -2464,8 +2450,8 @@ packages:
     dev: true
     optional: true
 
-  /@nrwl/nx-darwin-x64@15.8.9:
-    resolution: {integrity: sha512-EQu3pUGiFaCFjS9/Jp4zsANWxGvc/2r1Vpo3X8pXnhzD7yQhWiLLc+oXL1K2Jh6wbcB2tKM5ms6Iap7NlkOMIA==}
+  /@nrwl/nx-darwin-x64@15.9.2:
+    resolution: {integrity: sha512-qHfdluHlPzV0UHOwj1ZJ+qNEhzfLGiBuy1cOth4BSzDlvMnkuqBWoprfaXoztzYcus2NSILY1/7b3Jw4DAWmMw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
@@ -2473,8 +2459,8 @@ packages:
     dev: true
     optional: true
 
-  /@nrwl/nx-linux-arm-gnueabihf@15.8.9:
-    resolution: {integrity: sha512-N4BCrRt74cvfPOiYG/JV8Z6jarduksL+GgqR5n2Ki+yOxkLYPWxyoqcEzzKhnxdFxdquCl9f27tqGaOmEAoHvQ==}
+  /@nrwl/nx-linux-arm-gnueabihf@15.9.2:
+    resolution: {integrity: sha512-0GzwbablosnYnnJDCJvAeZv8LlelSrNwUnGhe43saeoZdAew35Ay1E34zBrg/GCGTASuz+knEEYFM+gDD9Mc6A==}
     engines: {node: '>= 10'}
     cpu: [arm]
     os: [linux]
@@ -2482,8 +2468,8 @@ packages:
     dev: true
     optional: true
 
-  /@nrwl/nx-linux-arm64-gnu@15.8.9:
-    resolution: {integrity: sha512-uni6VbpxZ0C0S15qbIc+6oHnvrX3Ug9FM8UodSy2FmNiPgJDtfSAyUWqDNdv3RzWRSP9i1Z+tOEHW+wzpz5MfA==}
+  /@nrwl/nx-linux-arm64-gnu@15.9.2:
+    resolution: {integrity: sha512-3mFIY7iUTPG45hSIRaM2DmraCy8W6hNoArAGRrTgYw40BIJHtLrW+Rt7DLyvVXaYCvrKugWOKtxC+jG7kpIZVA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -2491,8 +2477,8 @@ packages:
     dev: true
     optional: true
 
-  /@nrwl/nx-linux-arm64-musl@15.8.9:
-    resolution: {integrity: sha512-2mFMl/yEC1xToBk10nUGBD9XPnZHqDC2bvgFE3AqjKrbGTi/X9SgFejtlyOZJxg8z5lCz+2EqbsdZF61syUD4A==}
+  /@nrwl/nx-linux-arm64-musl@15.9.2:
+    resolution: {integrity: sha512-FNBnXEtockwxZa4I3NqggrJp0YIbNokJvt/clrICP+ijOacdUDkv8mJedavobkFsRsNq9gzCbRbUScKymrOLrg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -2500,8 +2486,8 @@ packages:
     dev: true
     optional: true
 
-  /@nrwl/nx-linux-x64-gnu@15.8.9:
-    resolution: {integrity: sha512-UQe+tfrRi00yftoKFPsr1TnYdhxaNqfU+pXeX9BCeBMWmoifcQuqv2KvXXPSv2iQGlN7s1JqgOFemQbbtZvVrQ==}
+  /@nrwl/nx-linux-x64-gnu@15.9.2:
+    resolution: {integrity: sha512-gHWsP5lbe4FNQCa1Q/VLxIuik+BqAOcSzyPjdUa4gCDcbxPa8xiE57PgXB5E1XUzOWNnDTlXa/Ll07/TIuKuog==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -2509,8 +2495,8 @@ packages:
     dev: true
     optional: true
 
-  /@nrwl/nx-linux-x64-musl@15.8.9:
-    resolution: {integrity: sha512-0RSEqFdwJmJZDhuj8yOKqxIr7olY4Xm+0hMNjz+20BVi2g37Oq138VC0iikzwaQVDP5Ude3cVaoRw4VBYlPfNw==}
+  /@nrwl/nx-linux-x64-musl@15.9.2:
+    resolution: {integrity: sha512-EaFUukCbmoHsYECX2AS4pxXH933yesBFVvBgD38DkoFDxDoJMVt6JqYwm+d5R7S4R2P9U3l++aurljQTRq567Q==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -2518,8 +2504,8 @@ packages:
     dev: true
     optional: true
 
-  /@nrwl/nx-win32-arm64-msvc@15.8.9:
-    resolution: {integrity: sha512-GRs0cF3hyT7wdwlTwP4L5HG9LuHxt+I0/lTYzzUsUSs2WIvn6qycoKZv1qc/aSdZv+LgdKiPE5U7zHEVc6zpaA==}
+  /@nrwl/nx-win32-arm64-msvc@15.9.2:
+    resolution: {integrity: sha512-PGAe7QMr51ivx1X3avvs8daNlvv1wGo3OFrobjlu5rSyjC1Y3qHwT9+wdlwzNZ93FIqWOq09s+rE5gfZRfpdAg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
@@ -2527,8 +2513,8 @@ packages:
     dev: true
     optional: true
 
-  /@nrwl/nx-win32-x64-msvc@15.8.9:
-    resolution: {integrity: sha512-u0L3T1ZMr4j1YM+6DdxnaJUl+VSkbSu+2vcLvLyo+c+Ekhr/JDirXPfyCdoM6c/DN+1NK1Km29soawX9Oyb2MA==}
+  /@nrwl/nx-win32-x64-msvc@15.9.2:
+    resolution: {integrity: sha512-Q8onNzhuAZ0l9DNkm8D4Z1AEIzJr8JiT4L2fVBLYrV/R75C2HS3q7lzvfo6oqMY6mXge1cFPcrTtg3YXBQaSWA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -2536,27 +2522,21 @@ packages:
     dev: true
     optional: true
 
-  /@nrwl/tao@15.8.9:
-    resolution: {integrity: sha512-pJF1ISvRaqdMHQFAQvccsiUJCaegn4CCX9GDfvdTTOPpWD2WS/vq+5o7bOWJ14E0jtn+92MfLisK7Z+CSuyoWg==}
+  /@nrwl/tao@15.9.2:
+    resolution: {integrity: sha512-+LqNC37w9c6q6Ukdpf0z0tt1PQFNi4gwhHpJvkYQiKRETHjyrrlyqTNEPEyA7PI62RuYC6VrpVw2gzI7ufqZEA==}
     hasBin: true
     dependencies:
-      nx: 15.8.9
+      nx: 15.9.2
     transitivePeerDependencies:
       - '@swc-node/register'
       - '@swc/core'
       - debug
     dev: true
 
-  /@nrwl/workspace@15.8.9(eslint@8.37.0)(prettier@2.8.7)(typescript@4.9.5):
-    resolution: {integrity: sha512-1Xzw+1IVaHFFQtXrG898aqj4q59cBwlmOhsSPV4Wl0h8+XxzUzk2svUhsJ9b18hH1oG4hETRTEslLKYJ+r1Eiw==}
-    peerDependencies:
-      prettier: ^2.6.2
-    peerDependenciesMeta:
-      prettier:
-        optional: true
+  /@nrwl/workspace@15.9.2:
+    resolution: {integrity: sha512-4e3p1EtJKvvZfH5ghLT3PtPfdr21WfN1LjctMaFAaqwb7jMos0jQIZlLotDPvc9BD8zzyljniE6BijDSZOWncg==}
     dependencies:
-      '@nrwl/devkit': 15.8.9(nx@15.8.9)(typescript@4.9.5)
-      '@nrwl/linter': 15.8.9(eslint@8.37.0)(nx@15.8.9)(prettier@2.8.7)(typescript@4.9.5)
+      '@nrwl/devkit': 15.9.2(nx@15.9.2)
       '@parcel/watcher': 2.0.4
       chalk: 4.1.2
       chokidar: 3.5.3
@@ -2569,23 +2549,17 @@ packages:
       ignore: 5.2.4
       minimatch: 3.0.5
       npm-run-path: 4.0.1
-      nx: 15.8.9
+      nx: 15.9.2
       open: 8.4.2
-      prettier: 2.8.7
       rxjs: 6.6.7
-      semver: 7.3.4
       tmp: 0.2.1
       tslib: 2.5.0
       yargs: 17.7.1
       yargs-parser: 21.1.1
     transitivePeerDependencies:
-      - '@babel/traverse'
       - '@swc-node/register'
       - '@swc/core'
       - debug
-      - eslint
-      - supports-color
-      - typescript
     dev: true
 
   /@parcel/watcher@2.0.4:
@@ -3236,16 +3210,9 @@ packages:
       - supports-color
     dev: true
 
-  /babel-plugin-transform-typescript-metadata@0.3.2(@babel/core@7.21.3):
+  /babel-plugin-transform-typescript-metadata@0.3.2:
     resolution: {integrity: sha512-mWEvCQTgXQf48yDqgN7CH50waTyYBeP2Lpqx4nNWab9sxEpdXVeKgfj1qYI2/TgUPQtNFZ85i3PemRtnXVYYJg==}
-    peerDependencies:
-      '@babel/core': ^7
-      '@babel/traverse': ^7
-    peerDependenciesMeta:
-      '@babel/traverse':
-        optional: true
     dependencies:
-      '@babel/core': 7.21.3
       '@babel/helper-plugin-utils': 7.20.2
     dev: true
 
@@ -4768,9 +4735,9 @@ packages:
       jest-environment-node: 28.1.3
       jest-get-type: 28.0.2
       jest-regex-util: 28.0.2
-      jest-resolve: 28.1.1
+      jest-resolve: 28.1.3
       jest-runner: 28.1.3
-      jest-util: 28.1.1
+      jest-util: 28.1.3
       jest-validate: 28.1.3
       micromatch: 4.0.5
       parse-json: 5.2.0
@@ -5120,7 +5087,7 @@ packages:
       graceful-fs: 4.2.11
       jest-haste-map: 28.1.3
       jest-pnp-resolver: 1.2.3(jest-resolve@28.1.1)
-      jest-util: 28.1.1
+      jest-util: 28.1.3
       jest-validate: 28.1.3
       resolve: 1.22.1
       resolve.exports: 1.1.0
@@ -5945,8 +5912,8 @@ packages:
     resolution: {integrity: sha512-90yv+6538zuvUMnN+zCr8LuV6bPFdq50304114vJYJ8RDyK8D5O9Phpbd6SZWgI7PwzmmfN1upeOJlvybDSgCw==}
     dev: true
 
-  /nx@15.8.9:
-    resolution: {integrity: sha512-wUrOx320IMDNQ6WIB4Sm5BbsPDpgp661pmlQZzacsulHq38D+LeSZM96Zaj0RZPVlGZU0l3X/cZP9ACzAQwdTw==}
+  /nx@15.9.2:
+    resolution: {integrity: sha512-wtcs+wsuplSckvgk+bV+/XuGlo+sVWzSG0RpgWBjQYeqA3QsVFEAPVY66Z5cSoukDbTV77ddcAjEw+Rz8oOR1A==}
     hasBin: true
     requiresBuild: true
     peerDependencies:
@@ -5958,8 +5925,8 @@ packages:
       '@swc/core':
         optional: true
     dependencies:
-      '@nrwl/cli': 15.8.9
-      '@nrwl/tao': 15.8.9
+      '@nrwl/cli': 15.9.2
+      '@nrwl/tao': 15.9.2
       '@parcel/watcher': 2.0.4
       '@yarnpkg/lockfile': 1.1.0
       '@yarnpkg/parsers': 3.0.0-rc.41
@@ -5994,15 +5961,15 @@ packages:
       yargs: 17.7.1
       yargs-parser: 21.1.1
     optionalDependencies:
-      '@nrwl/nx-darwin-arm64': 15.8.9
-      '@nrwl/nx-darwin-x64': 15.8.9
-      '@nrwl/nx-linux-arm-gnueabihf': 15.8.9
-      '@nrwl/nx-linux-arm64-gnu': 15.8.9
-      '@nrwl/nx-linux-arm64-musl': 15.8.9
-      '@nrwl/nx-linux-x64-gnu': 15.8.9
-      '@nrwl/nx-linux-x64-musl': 15.8.9
-      '@nrwl/nx-win32-arm64-msvc': 15.8.9
-      '@nrwl/nx-win32-x64-msvc': 15.8.9
+      '@nrwl/nx-darwin-arm64': 15.9.2
+      '@nrwl/nx-darwin-x64': 15.9.2
+      '@nrwl/nx-linux-arm-gnueabihf': 15.9.2
+      '@nrwl/nx-linux-arm64-gnu': 15.9.2
+      '@nrwl/nx-linux-arm64-musl': 15.9.2
+      '@nrwl/nx-linux-x64-gnu': 15.9.2
+      '@nrwl/nx-linux-x64-musl': 15.9.2
+      '@nrwl/nx-win32-arm64-msvc': 15.9.2
+      '@nrwl/nx-win32-x64-msvc': 15.9.2
     transitivePeerDependencies:
       - debug
     dev: true
