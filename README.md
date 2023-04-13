@@ -7,7 +7,12 @@ Dependencies:
 - pnpm `pnpm install trpc-client ngx-trpc`
 - npm `npm install trpc-client ngx-trpc`
 
-Project setup:
+
+## Example implementation
+[ngx-trpc-nx-fastify-example](https://github.com/Dafnik/ngx-trpc-nx-fastify-example)
+
+
+## Project setup
 
 ```typescript
 import {inject, InjectionToken, Provider} from '@angular/core';
@@ -79,11 +84,6 @@ export class PostListComponent {
 }
 ```
 
-Libs used:
-
-- TRPC https://trpc.io
-- RxJS https://rxjs.dev
-
 ## Commands
 
 ### Build
@@ -91,3 +91,8 @@ Libs used:
 ```shell
 pnpn exec build ngx-trpc
 ```
+
+## Libs used
+
+- TRPC https://trpc.io
+- RxJS https://rxjs.dev
