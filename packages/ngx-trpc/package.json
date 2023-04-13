@@ -1,6 +1,6 @@
 {
   "name": "ngx-trpc",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "TRPC library for Angular.",
   "private": false,
   "license": "MIT",
