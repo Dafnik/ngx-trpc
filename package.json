@@ -18,7 +18,7 @@
     "@nrwl/js": "15.9.2",
     "@nrwl/linter": "15.9.2",
     "@types/jest": "^29.4.0",
-    "@types/node": "18.16.0",
+    "@types/node": "18.16.3",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "commitlint": "^17.5.1",
