@@ -1,3 +1,6 @@
+# DISCONTINUED
+ngx-trpc was moved to [analogjs/trpc](https://github.com/analogjs/analog/tree/main/packages/trpc)
+
 # ngx-trpc
 
 TRPC Client for Angular.
